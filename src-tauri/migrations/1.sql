@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT NOT NULL UNIQUE,
+  password_hash TEXT NOT NULL,
+  role TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS accounts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  code TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  type TEXT NOT NULL,
+  initial_balance REAL DEFAULT 0.0
+);
+
+CREATE TABLE IF NOT EXISTS journal_entries (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  date TEXT NOT NULL,
+  description TEXT NOT NULL,
+  reference TEXT
+);
+
+CREATE TABLE IF NOT EXISTS journal_lines (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  entry_id INTEGER NOT NULL,
+  account_id INTEGER NOT NULL,
+  debit REAL DEFAULT 0.0,
+  credit REAL DEFAULT 0.0,
+  FOREIGN KEY(entry_id) REFERENCES journal_entries(id) ON DELETE CASCADE,
+  FOREIGN KEY(account_id) REFERENCES accounts(id)
+);
