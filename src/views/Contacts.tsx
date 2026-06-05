@@ -136,13 +136,14 @@ export default function Contacts() {
 
       <Dialog open={open} onClose={() => setOpen(false)} maxWidth="sm" fullWidth>
         <DialogTitle fontWeight="bold">{isEdit ? 'Edit Kontak' : 'Tambah Kontak'}</DialogTitle>
-        <DialogContent sx={{ mt: 1 }}>
+        <DialogContent sx={{ pt: 1 }}>
           <TextField 
             label="Nama Kontak" 
             value={formData.name} 
             onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
             fullWidth 
-            sx={{ mb: 2 }} 
+            sx={{ mb: 2, mt: 1 }} 
+            InputLabelProps={{ shrink: true }}
           />
           <TextField 
             select 
@@ -151,6 +152,7 @@ export default function Contacts() {
             onChange={(e) => setFormData({ ...formData, type: e.target.value })} 
             fullWidth
             sx={{ mb: 2 }}
+            InputLabelProps={{ shrink: true }}
           >
             <MenuItem value="customer">Pelanggan (Customer)</MenuItem>
             <MenuItem value="vendor">Pemasok (Vendor)</MenuItem>
@@ -162,6 +164,7 @@ export default function Contacts() {
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })} 
             fullWidth 
             sx={{ mb: 2 }} 
+            InputLabelProps={{ shrink: true }}
           />
           <TextField 
             label="Email" 
@@ -170,6 +173,7 @@ export default function Contacts() {
             onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
             fullWidth 
             sx={{ mb: 2 }} 
+            InputLabelProps={{ shrink: true }}
           />
           <TextField 
             label="NPWP (16 Digit)" 
@@ -181,6 +185,7 @@ export default function Contacts() {
             }} 
             fullWidth 
             sx={{ mb: 2 }} 
+            InputLabelProps={{ shrink: true }}
           />
           <TextField 
             label="Alamat" 
@@ -189,6 +194,7 @@ export default function Contacts() {
             value={formData.address} 
             onChange={(e) => setFormData({ ...formData, address: e.target.value })} 
             fullWidth 
+            InputLabelProps={{ shrink: true }}
           />
         </DialogContent>
         <DialogActions sx={{ p: 2 }}>

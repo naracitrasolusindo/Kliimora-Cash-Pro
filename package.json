@@ -1,13 +1,14 @@
 {
   "name": "laporan-keuangan",
   "private": true,
-  "version": "2.0.1",
+  "version": "2.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "release": "node generate-release.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
