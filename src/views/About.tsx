@@ -76,7 +76,7 @@ export default function About() {
         </Box>
         
         <Typography variant="h4" fontWeight="800" color="text.primary" gutterBottom>
-          Kliimora Cash Pro v.2.0.1
+          Kliimora Cash Pro v.2.0.2
         </Typography>
         <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 4 }}>
           Aplikasi Pembukuan Desktop Gratis
