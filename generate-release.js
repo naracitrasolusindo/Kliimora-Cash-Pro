@@ -3,9 +3,9 @@ import fs from 'fs';
 import path from 'path';
 
 // Konfigurasi
-const version = '2.0.2'; // Ganti jika versinya naik
+const version = '2.1.0'; // Ganti jika versinya naik
 const repoName = 'naracitrasolusindo/Kliimora-Cash-Pro';
-const privateKeyPath = 'C:\\Antigravity\\laporan-keuangan\\updater.key';
+const privateKeyPath = path.join(process.cwd(), 'updater.key');
 const privateKeyPassword = 'kliimora2026';
 
 console.log('--- KLIIMORA CASH PRO: RELEASE GENERATOR ---');
