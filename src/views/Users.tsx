@@ -84,7 +84,7 @@ export default function Users() {
   };
 
   if (user?.role !== 'admin') {
-    return <Box sx={{ p: 3 }}><Typography color="error">Akses Ditolak. Halaman ini hanya untuk Admin.</Typography></Box>;
+    return <Box sx={{ p: 3 }}><Typography component="p" color="error">Akses Ditolak. Halaman ini hanya untuk Admin.</Typography></Box>;
   }
 
   return (

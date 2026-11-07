@@ -85,7 +85,7 @@ export default function Contacts() {
     <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box>
-          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Buku Kontak</Typography>
+          <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: "700" }}>Buku Kontak</Typography>
           <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola Pelanggan dan Pemasok Anda</Typography>
         </Box>
         <Button variant="contained" onClick={() => handleOpen()}>Tambah Kontak</Button>

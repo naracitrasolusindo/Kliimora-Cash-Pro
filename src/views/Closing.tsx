@@ -167,7 +167,7 @@ export default function Closing() {
   return (
     <Box sx={{ maxWidth: 800, mx: 'auto' }}>
       <Box sx={{ mb: 4 }}>
-        <Typography component="h4" variant="h4" fontWeight="700" color="primary">Tutup Buku</Typography>
+        <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: "700" }}>Tutup Buku</Typography>
         <Typography component="h6" variant="subtitle1" color="text.secondary">Jurnal Penutup Pendapatan & Beban</Typography>
       </Box>
 
@@ -178,7 +178,7 @@ export default function Closing() {
       )}
 
       <Paper sx={{ p: 4, borderRadius: 2, boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-        <Typography component="h6" variant="h6" fontWeight="bold" sx={{ mb: 3 }}>Parameter Penutupan</Typography>
+        <Typography component="h6" variant="h6" sx={{ fontWeight: "bold",  mb: 3 }}>Parameter Penutupan</Typography>
         
         <Box sx={{ display: 'flex', gap: 3, mb: 3 }}>
           <TextField
@@ -220,17 +220,17 @@ export default function Closing() {
           <Box sx={{ mt: 4, p: 3, bgcolor: 'background.paper', borderRadius: 2, border: '1px solid', borderColor: 'divider' }}>
             <Typography component="h6" variant="h6" sx={{ mb: 2, color: 'text.primary' }}>Ringkasan Saldo yang Akan Ditutup</Typography>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-              <Typography color="text.secondary">Total Pendapatan:</Typography>
-              <Typography fontWeight="bold">{formatRupiah(preview.totalRevenue)}</Typography>
+              <Typography component="p" color="text.secondary">Total Pendapatan:</Typography>
+              <Typography component="p" sx={{ fontWeight: "bold" }}>{formatRupiah(preview.totalRevenue)}</Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-              <Typography color="text.secondary">Total Beban:</Typography>
-              <Typography fontWeight="bold">{formatRupiah(preview.totalExpense)}</Typography>
+              <Typography component="p" color="text.secondary">Total Beban:</Typography>
+              <Typography component="p" sx={{ fontWeight: "bold" }}>{formatRupiah(preview.totalExpense)}</Typography>
             </Box>
             <Divider sx={{ my: 2 }} />
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Typography color="text.secondary" fontWeight="bold">Laba / Rugi Bersih:</Typography>
-              <Typography fontWeight="bold" color={preview.netIncome >= 0 ? 'success.main' : 'error.main'} fontSize="1.1rem">
+              <Typography component="p" color="text.secondary" sx={{ fontWeight: "bold" }}>Laba / Rugi Bersih:</Typography>
+              <Typography component="p" color={preview.netIncome sx={{ fontWeight: "bold" }}>= 0 ? 'success.main' : 'error.main'} fontSize="1.1rem">
                 {formatRupiah(preview.netIncome)}
               </Typography>
             </Box>

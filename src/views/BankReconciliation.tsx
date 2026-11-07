@@ -131,7 +131,7 @@ export default function BankReconciliation() {
 
   return (
     <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
-      <Typography component="h4" variant="h4" fontWeight="700" color="primary" sx={{ mb: 1 }}>Rekonsiliasi Bank</Typography>
+      <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: "700",  mb: 1 }}>Rekonsiliasi Bank</Typography>
       <Typography component="h6" variant="subtitle1" color="text.secondary" sx={{ mb: 4 }}>Cocokkan catatan buku kas dengan mutasi rekening koran asli</Typography>
 
       {message && (
@@ -235,31 +235,31 @@ export default function BankReconciliation() {
 
         <Box sx={{ flex: 1 }}>
           <Paper sx={{ p: 3, borderRadius: 2, bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider' }}>
-            <Typography component="h6" variant="h6" fontWeight="bold" sx={{ mb: 2 }}>Ringkasan Saldo</Typography>
+            <Typography component="h6" variant="h6" sx={{ fontWeight: "bold",  mb: 2 }}>Ringkasan Saldo</Typography>
             
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-              <Typography color="text.secondary">Saldo Awal Terekonsiliasi</Typography>
+              <Typography component="p" color="text.secondary">Saldo Awal Terekonsiliasi</Typography>
               <Typography>{formatRupiah(initialBalance)}</Typography>
             </Box>
             
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-              <Typography color="text.secondary">Transaksi Dicentang</Typography>
+              <Typography component="p" color="text.secondary">Transaksi Dicentang</Typography>
               <Typography>{formatRupiah(clearedBalance - initialBalance)}</Typography>
             </Box>
 
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, pt: 1, borderTop: '1px dashed #cbd5e1' }}>
-              <Typography fontWeight="bold">Saldo Cleared</Typography>
-              <Typography fontWeight="bold" color="primary">{formatRupiah(clearedBalance)}</Typography>
+              <Typography component="p" sx={{ fontWeight: "bold" }}>Saldo Cleared</Typography>
+              <Typography component="p" color="primary" sx={{ fontWeight: "bold" }}>{formatRupiah(clearedBalance)}</Typography>
             </Box>
             
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-              <Typography color="text.secondary">Saldo Rekening Koran</Typography>
+              <Typography component="p" color="text.secondary">Saldo Rekening Koran</Typography>
               <Typography>{formatRupiah(targetBalance)}</Typography>
             </Box>
 
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3, p: 1.5, bgcolor: difference === 0 ? 'rgba(76, 175, 80, 0.1)' : 'rgba(244, 67, 54, 0.1)', borderRadius: 1 }}>
-              <Typography fontWeight="bold" color={difference === 0 ? 'success.main' : 'error.main'}>Selisih</Typography>
-              <Typography fontWeight="bold" color={difference === 0 ? 'success.main' : 'error.main'}>
+              <Typography component="p" color={difference === 0 ? 'success.main' : 'error.main'} sx={{ fontWeight: "bold" }}>Selisih</Typography>
+              <Typography component="p" color={difference === 0 ? 'success.main' : 'error.main'} sx={{ fontWeight: "bold" }}>
                 {formatRupiah(difference)}
               </Typography>
             </Box>

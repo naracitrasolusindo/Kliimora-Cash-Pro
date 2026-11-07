@@ -92,7 +92,7 @@ export default function Accounts() {
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-        <Typography component="h4" variant="h4" fontWeight="bold" color="primary">Daftar Akun (COA)</Typography>
+        <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: "bold" }}>Daftar Akun (COA)</Typography>
         <Button variant="contained" onClick={() => handleOpen()} sx={{ borderRadius: 2 }}>Tambah Akun</Button>
       </Box>
 

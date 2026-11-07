@@ -221,7 +221,7 @@ export default function FixedAssets() {
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box>
-          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Aset Tetap</Typography>
+          <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: "700" }}>Aset Tetap</Typography>
           <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola daftar inventaris dan penyusutan</Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: 2 }}>
@@ -266,7 +266,7 @@ export default function FixedAssets() {
                   <TableRow key={a.id} hover>
                     <TableCell>{a.code || '-'}</TableCell>
                     <TableCell>
-                      <Typography component="p" variant="body2" fontWeight="bold">{a.name}</Typography>
+                      <Typography component="p" variant="body2" sx={{ fontWeight: "bold" }}>{a.name}</Typography>
                       <Typography component="span" variant="caption" color="text.secondary">{a.asset_account_name}</Typography>
                     </TableCell>
                     <TableCell>{a.purchase_date}</TableCell>
@@ -296,35 +296,35 @@ export default function FixedAssets() {
         <DialogTitle>{editingId ? 'Edit Aset Tetap' : 'Tambah Aset Tetap Baru'}</DialogTitle>
         <DialogContent dividers>
           <Grid container spacing={3} sx={{ mt: 1 }}>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField label="Kode Aset" fullWidth value={formData.code} onChange={e => setFormData({...formData, code: e.target.value})} />
             </Grid>
-            <Grid item xs={12} sm={8}>
+            <Grid size={{ xs: 12, sm: 8 }}>
               <TextField label="Nama Aset (wajib)" fullWidth value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} required />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField label="Deskripsi" fullWidth value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} />
             </Grid>
             
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField label="Tanggal Pembelian (wajib)" type="date" fullWidth value={formData.purchase_date} onChange={e => setFormData({...formData, purchase_date: e.target.value})} slotProps={{ inputLabel: { shrink: true } }} required />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField label="Harga Beli (wajib)" type="number" fullWidth value={formData.purchase_price} onChange={e => setFormData({...formData, purchase_price: Number(e.target.value)})} required />
             </Grid>
             
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField label="Umur Ekonomis (Bulan) (wajib)" type="number" fullWidth value={formData.useful_life_months} onChange={e => setFormData({...formData, useful_life_months: Number(e.target.value)})} required />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField label="Nilai Residu/Sisa" type="number" fullWidth value={formData.salvage_value} onChange={e => setFormData({...formData, salvage_value: Number(e.target.value)})} />
             </Grid>
 
             {/* Account Mapping Section */}
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <Typography component="h6" variant="subtitle2" color="primary" sx={{ mt: 2 }}>Pemetaan Akun (Jurnal)</Typography>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <FormControl fullWidth required>
                 <InputLabel>Akun Aset</InputLabel>
                 <Select value={formData.asset_account_id} label="Akun Aset" onChange={e => setFormData({...formData, asset_account_id: e.target.value})}>
@@ -337,7 +337,7 @@ export default function FixedAssets() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <FormControl fullWidth required>
                 <InputLabel>Akun Akum. Penyusutan</InputLabel>
                 <Select value={formData.accum_dep_account_id} label="Akun Akum. Penyusutan" onChange={e => setFormData({...formData, accum_dep_account_id: e.target.value})}>
@@ -347,7 +347,7 @@ export default function FixedAssets() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <FormControl fullWidth required>
                 <InputLabel>Akun Beban Penyusutan</InputLabel>
                 <Select value={formData.dep_expense_account_id} label="Akun Beban Penyusutan" onChange={e => setFormData({...formData, dep_expense_account_id: e.target.value})}>
@@ -358,7 +358,7 @@ export default function FixedAssets() {
               </FormControl>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <FormControl fullWidth>
                 <InputLabel>Status</InputLabel>
                 <Select value={formData.status} label="Status" onChange={e => setFormData({...formData, status: e.target.value})}>

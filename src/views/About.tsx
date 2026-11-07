@@ -69,7 +69,7 @@ export default function About() {
           KCP
         </Box>
         
-        <Typography component="h4" variant="h4" fontWeight="800" color="text.primary" gutterBottom>
+        <Typography component="h4" variant="h4" color="text.primary" gutterBottom sx={{ fontWeight: "800" }}>
           Kliimora Cash Pro v.2.0.2
         </Typography>
         <Typography component="h6" variant="subtitle1" color="text.secondary" sx={{ mb: 4 }}>
@@ -114,7 +114,7 @@ export default function About() {
         </Box>
 
         <Box sx={{ mt: 4 }}>
-          <Typography component="p" variant="body2" color="text.secondary" fontWeight={600}>
+          <Typography component="p" variant="body2" color="text.secondary" sx={{ fontWeight: {600} }}>
             Team Kliimora &copy; 2026
           </Typography>
         </Box>

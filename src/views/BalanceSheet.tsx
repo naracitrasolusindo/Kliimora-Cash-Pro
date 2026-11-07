@@ -138,7 +138,7 @@ export default function BalanceSheet() {
 
       <Grid container spacing={4}>
         {/* KOLOM ASET */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Paper sx={{ p: 0, boxShadow: '0 4px 20px rgba(0,0,0,0.05)', borderRadius: 2, height: '100%', overflow: 'hidden' }}>
             <TableContainer>
               <Table size="small">
@@ -173,7 +173,7 @@ export default function BalanceSheet() {
         </Grid>
 
         {/* KOLOM KEWAJIBAN & EKUITAS */}
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <Paper sx={{ p: 0, boxShadow: '0 4px 20px rgba(0,0,0,0.05)', borderRadius: 2, height: '100%', overflow: 'hidden' }}>
             <TableContainer>
               <Table size="small">

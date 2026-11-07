@@ -139,7 +139,7 @@ export default function Budgeting() {
     <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
       <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', md: 'center' }, gap: 2, mb: 3 }}>
         <Box>
-          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Anggaran (Budgeting)</Typography>
+          <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: "700" }}>Anggaran (Budgeting)</Typography>
           <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola dan pantau realisasi anggaran</Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
@@ -210,7 +210,7 @@ export default function Budgeting() {
         <DialogTitle>{editModeId ? 'Edit Anggaran' : 'Tambah Anggaran'}</DialogTitle>
         <DialogContent dividers>
           <Grid container spacing={3}>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField 
                 select 
                 label="Pilih Akun" 
@@ -222,7 +222,7 @@ export default function Budgeting() {
                 {accounts.map(a => <MenuItem key={a.id} value={a.id}>{a.code} - {a.name}</MenuItem>)}
               </TextField>
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField 
                 label="Jumlah Anggaran (Rp)" 
                 type="number" 

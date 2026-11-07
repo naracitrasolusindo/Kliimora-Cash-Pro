@@ -139,48 +139,48 @@ export default function Dashboard() {
   return (
     <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
       <Box sx={{ mb: 4 }}>
-        <Typography component="h4" variant="h4" fontWeight="800" color="text.primary">Dashboard</Typography>
+        <Typography component="h4" variant="h4" color="text.primary" sx={{ fontWeight: "800" }}>Dashboard</Typography>
         <Typography component="h6" variant="subtitle1" color="text.secondary">Ringkasan Sistem Keuangan Anda</Typography>
       </Box>
 
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Paper sx={{ p: 2.5, display: 'flex', alignItems: 'center', borderRadius: 3, boxShadow: '0 4px 20px rgba(0,0,0,0.05)', bgcolor: 'background.paper' }}>
             <Avatar sx={{ bgcolor: 'rgba(76, 175, 80, 0.1)', color: '#4caf50', width: 50, height: 50, mr: 2 }}>
               <AccountBalanceWalletIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase">Total Kas & Bank</Typography>
-              <Typography component="h6" variant="h6" fontWeight="800">{formatRupiah(stats.totalKas)}</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: {600} }}>Total Kas & Bank</Typography>
+              <Typography component="h6" variant="h6" sx={{ fontWeight: "800" }}>{formatRupiah(stats.totalKas)}</Typography>
             </Box>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Paper sx={{ p: 2.5, display: 'flex', alignItems: 'center', borderRadius: 3, boxShadow: '0 4px 20px rgba(0,0,0,0.05)', bgcolor: 'background.paper' }}>
             <Avatar sx={{ bgcolor: 'rgba(33, 150, 243, 0.1)', color: '#2196f3', width: 50, height: 50, mr: 2 }}>
               <PointOfSaleIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase">Total Piutang</Typography>
-              <Typography component="h6" variant="h6" fontWeight="800">{formatRupiah(stats.totalPiutang)}</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: {600} }}>Total Piutang</Typography>
+              <Typography component="h6" variant="h6" sx={{ fontWeight: "800" }}>{formatRupiah(stats.totalPiutang)}</Typography>
             </Box>
           </Paper>
         </Grid>
         
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Paper sx={{ p: 2.5, display: 'flex', alignItems: 'center', borderRadius: 3, boxShadow: '0 4px 20px rgba(0,0,0,0.05)', bgcolor: 'background.paper' }}>
             <Avatar sx={{ bgcolor: 'rgba(255, 152, 0, 0.1)', color: '#ff9800', width: 50, height: 50, mr: 2 }}>
               <BusinessCenterIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase">Total Aset</Typography>
-              <Typography component="h6" variant="h6" fontWeight="800">{formatRupiah(stats.totalAset)}</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: {600} }}>Total Aset</Typography>
+              <Typography component="h6" variant="h6" sx={{ fontWeight: "800" }}>{formatRupiah(stats.totalAset)}</Typography>
             </Box>
           </Paper>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid size={{ xs: 12, sm: 6, md: 3 }}>
           <Paper sx={{ 
             p: 2, 
             display: 'flex', 
@@ -194,8 +194,8 @@ export default function Dashboard() {
               <TrendingUpIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" sx={{ opacity: 0.9 }} fontWeight={600} textTransform="uppercase">Laba Bulan Ini</Typography>
-              <Typography component="h6" variant="h6" fontWeight="800" sx={{ lineHeight: 1.2 }}>{formatRupiah(stats.labaBersihBulanIni)}</Typography>
+              <Typography component="span" variant="caption" sx={{ fontWeight: {600},  opacity: 0.9 }} textTransform="uppercase">Laba Bulan Ini</Typography>
+              <Typography component="h6" variant="h6" sx={{ fontWeight: "800",  lineHeight: 1.2 }}>{formatRupiah(stats.labaBersihBulanIni)}</Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: 'rgba(255,255,255,0.2)', px: 0.8, py: 0.2, borderRadius: 1 }}>
                   {stats.momGrowth >= 0 ? <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.3 }} /> : <ArrowDownwardIcon sx={{ fontSize: 14, mr: 0.3 }} />}
@@ -211,9 +211,9 @@ export default function Dashboard() {
       </Grid>
 
       <Grid container spacing={3}>
-        <Grid item xs={12} md={8}>
+        <Grid size={{ xs: 12, md: 8 }}>
           <Paper sx={{ p: 3, borderRadius: 3, boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #f0f0f0', mb: 3 }}>
-            <Typography component="h6" variant="h6" fontWeight="700" color="text.primary" gutterBottom>Tren Laba Bersih (6 Bulan Terakhir)</Typography>
+            <Typography component="h6" variant="h6" color="text.primary" gutterBottom sx={{ fontWeight: "700" }}>Tren Laba Bersih (6 Bulan Terakhir)</Typography>
             <Box sx={{ height: 300, mt: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -234,7 +234,7 @@ export default function Dashboard() {
           </Paper>
 
           <Paper sx={{ p: 3, borderRadius: 3, boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #f0f0f0' }}>
-            <Typography component="h6" variant="h6" fontWeight="700" color="text.primary" gutterBottom>Pendapatan vs Pengeluaran</Typography>
+            <Typography component="h6" variant="h6" color="text.primary" gutterBottom sx={{ fontWeight: "700" }}>Pendapatan vs Pengeluaran</Typography>
             <Box sx={{ height: 300, mt: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -251,12 +251,12 @@ export default function Dashboard() {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid size={{ xs: 12, md: 4 }}>
           <Paper sx={{ p: 3, borderRadius: 3, boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #f0f0f0', height: '100%' }}>
-            <Typography component="h6" variant="h6" fontWeight="700" color="text.primary" gutterBottom>Top 5 Pengeluaran Bulan Ini</Typography>
+            <Typography component="h6" variant="h6" color="text.primary" gutterBottom sx={{ fontWeight: "700" }}>Top 5 Pengeluaran Bulan Ini</Typography>
             {expenseData.length === 0 ? (
               <Box sx={{ display: 'flex', height: 250, alignItems: 'center', justifyContent: 'center' }}>
-                <Typography color="text.secondary">Belum ada pengeluaran.</Typography>
+                <Typography component="p" color="text.secondary">Belum ada pengeluaran.</Typography>
               </Box>
             ) : (
               <Box sx={{ height: 300, mt: 2, position: 'relative' }}>

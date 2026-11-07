@@ -316,19 +316,19 @@ export default function Journal() {
     <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
       <Box sx={{ mb: 3 }}>
         <Box sx={{ mb: 2 }}>
-          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Jurnal Umum</Typography>
+          <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: "700" }}>Jurnal Umum</Typography>
           <Typography component="h6" variant="subtitle1" color="text.secondary">Tampilan Baris per Baris</Typography>
         </Box>
         
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} md={5} lg={4}>
+          <Grid size={{ xs: 12, md: 5, lg: 4 }}>
             <Box sx={{ display: 'flex', gap: 2 }}>
               <TextField fullWidth label="Mulai Tanggal" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} size="small" slotProps={{ inputLabel: { shrink: true } }} />
               <TextField fullWidth label="Sampai Tanggal" type="date" value={endDate} onChange={e => setEndDate(e.target.value)} size="small" slotProps={{ inputLabel: { shrink: true } }} />
             </Box>
           </Grid>
           
-          <Grid item xs={12} md={7} lg={8}>
+          <Grid size={{ xs: 12, md: 7, lg: 8 }}>
             <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', flexWrap: 'wrap', justifyContent: { xs: 'flex-start', md: 'flex-end' } }}>
               <TextField
                 placeholder="Cari..."
@@ -434,21 +434,21 @@ export default function Journal() {
         <DialogTitle fontWeight="bold">{editModeId ? 'Edit Jurnal Entri' : 'Tambah Jurnal Entri'}</DialogTitle>
         <DialogContent sx={{ pt: 1 }}>
           <Grid container spacing={2} sx={{ mb: 3, mt: 1 }}>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField label="Tanggal" type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} fullWidth size="small" variant="outlined" slotProps={{ inputLabel: { shrink: true } }} />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField label="No. Referensi" value={formData.reference} onChange={(e) => setFormData({ ...formData, reference: e.target.value })} fullWidth size="small" variant="outlined" slotProps={{ inputLabel: { shrink: true } }} />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField label="Keterangan" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} fullWidth size="small" variant="outlined" slotProps={{ inputLabel: { shrink: true } }} />
             </Grid>
           </Grid>
 
-          <Typography component="h6" variant="subtitle1" fontWeight="bold" gutterBottom>Baris Jurnal</Typography>
+          <Typography component="h6" variant="subtitle1" gutterBottom sx={{ fontWeight: "bold" }}>Baris Jurnal</Typography>
           {lines.map((line, index) => (
             <Grid container spacing={2} sx={{ mb: 2, alignItems: 'center' }} key={index}>
-              <Grid item xs={12} sm={4}>
+              <Grid size={{ xs: 12, sm: 4 }}>
                 <TextField select label="Akun" value={line.account_id} onChange={(e) => updateLine(index, 'account_id', parseInt(e.target.value))} fullWidth size="small" slotProps={{ inputLabel: { shrink: true } }}>
                   <MenuItem value={0} disabled>Pilih Akun</MenuItem>
                   {accounts.map(acc => (
@@ -456,7 +456,7 @@ export default function Journal() {
                   ))}
                 </TextField>
               </Grid>
-              <Grid item xs={12} sm={3}>
+              <Grid size={{ xs: 12, sm: 3 }}>
                 <TextField select label="Kontak (Opsional)" value={line.contact_id} onChange={(e) => updateLine(index, 'contact_id', parseInt(e.target.value))} fullWidth size="small" slotProps={{ inputLabel: { shrink: true } }}>
                   <MenuItem value={0}>- Tanpa Kontak -</MenuItem>
                   {contacts.map(c => (
@@ -464,13 +464,13 @@ export default function Journal() {
                   ))}
                 </TextField>
               </Grid>
-              <Grid item xs={12} sm={2}>
+              <Grid size={{ xs: 12, sm: 2 }}>
                 <TextField label="Debit (Rp)" type="number" value={line.debit || ''} onChange={(e) => updateLine(index, 'debit', parseFloat(e.target.value) || 0)} disabled={line.credit > 0} fullWidth size="small" slotProps={{ inputLabel: { shrink: true } }}/>
               </Grid>
-              <Grid item xs={12} sm={2}>
+              <Grid size={{ xs: 12, sm: 2 }}>
                 <TextField label="Kredit (Rp)" type="number" value={line.credit || ''} onChange={(e) => updateLine(index, 'credit', parseFloat(e.target.value) || 0)} disabled={line.debit > 0} fullWidth size="small" slotProps={{ inputLabel: { shrink: true } }}/>
               </Grid>
-              <Grid item xs={12} sm={1}>
+              <Grid size={{ xs: 12, sm: 1 }}>
                 <IconButton color="error" onClick={() => removeLine(index)} disabled={lines.length <= 2}><DeleteIcon /></IconButton>
               </Grid>
             </Grid>
@@ -478,9 +478,9 @@ export default function Journal() {
           <Button onClick={() => setLines([...lines, { account_id: 0, contact_id: 0, debit: 0, credit: 0 }])} variant="outlined" sx={{ mb: 3 }}>Tambah Baris</Button>
 
           <Grid container spacing={2} sx={{ borderTop: 1, borderColor: 'divider', pt: 2 }}>
-            <Grid item xs={12} sm={7}><Typography align="right" fontWeight="bold">Total:</Typography></Grid>
-            <Grid item xs={12} sm={2}><Typography fontWeight="bold" color={isBalanced ? 'success.main' : 'error.main'}>Rp {totalDebitInput.toLocaleString('id-ID')}</Typography></Grid>
-            <Grid item xs={12} sm={2}><Typography fontWeight="bold" color={isBalanced ? 'success.main' : 'error.main'}>Rp {totalCreditInput.toLocaleString('id-ID')}</Typography></Grid>
+            <Grid size={{ xs: 12, sm: 7 }}><Typography component="p" align="right" sx={{ fontWeight: "bold" }}>Total:</Typography></Grid>
+            <Grid size={{ xs: 12, sm: 2 }}><Typography component="p" color={isBalanced ? 'success.main' : 'error.main'} sx={{ fontWeight: "bold" }}>Rp {totalDebitInput.toLocaleString('id-ID')}</Typography></Grid>
+            <Grid size={{ xs: 12, sm: 2 }}><Typography component="p" color={isBalanced ? 'success.main' : 'error.main'} sx={{ fontWeight: "bold" }}>Rp {totalCreditInput.toLocaleString('id-ID')}</Typography></Grid>
           </Grid>
         </DialogContent>
         <DialogActions sx={{ p: 2 }}>

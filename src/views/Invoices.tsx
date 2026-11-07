@@ -300,7 +300,7 @@ export default function Invoices() {
     <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box>
-          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Tagihan (Invoices)</Typography>
+          <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: "700" }}>Tagihan (Invoices)</Typography>
           <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola penagihan ke pelanggan</Typography>
         </Box>
         <Button variant="contained" onClick={handleOpen}>Buat Tagihan</Button>
@@ -358,7 +358,7 @@ export default function Invoices() {
         <DialogTitle>{editModeId ? 'Edit Tagihan' : 'Buat Tagihan Baru'}</DialogTitle>
         <DialogContent dividers sx={{ p: 3 }}>
           <Grid container spacing={3} sx={{ mb: 4 }}>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField 
                 label="Nomor Tagihan" 
                 fullWidth size="small" 
@@ -366,7 +366,7 @@ export default function Invoices() {
                 onChange={e => setFormData({...formData, invoice_number: e.target.value})} 
               />
             </Grid>
-            <Grid item xs={12} sm={8}>
+            <Grid size={{ xs: 12, sm: 8 }}>
               <TextField 
                 select 
                 label="Pelanggan" 
@@ -378,7 +378,7 @@ export default function Invoices() {
                 {contacts.map(c => <MenuItem key={c.id} value={c.id}>{c.name}</MenuItem>)}
               </TextField>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField 
                 label="Tanggal Tagihan" 
                 type="date" 
@@ -388,7 +388,7 @@ export default function Invoices() {
                 onChange={e => setFormData({...formData, date: e.target.value})} 
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField 
                 label="Jatuh Tempo" 
                 type="date" 
@@ -398,7 +398,7 @@ export default function Invoices() {
                 onChange={e => setFormData({...formData, due_date: e.target.value})} 
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField 
                 select 
                 label="Status Pembayaran" 
@@ -483,7 +483,7 @@ export default function Invoices() {
           </Button>
 
           <Grid container spacing={3} sx={{ mt: 2 }}>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField 
                 label="Catatan & Ketentuan Pembayaran" 
                 fullWidth multiline rows={4} size="small" 
@@ -491,11 +491,11 @@ export default function Invoices() {
                 onChange={e => setFormData({...formData, notes: e.target.value})} 
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <Box sx={{ p: 2, bgcolor: 'background.default', borderRadius: 2 }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                   <Typography>Subtotal:</Typography>
-                  <Typography fontWeight={600}>Rp {subtotal.toLocaleString('id-ID')}</Typography>
+                  <Typography component="p" sx={{ fontWeight: {600} }}>Rp {subtotal.toLocaleString('id-ID')}</Typography>
                 </Box>
                 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1, gap: 2 }}>
@@ -524,13 +524,13 @@ export default function Invoices() {
                 </Box>
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-                  <Typography color="text.secondary" variant="body2">Nilai PPN:</Typography>
-                  <Typography color="text.secondary" variant="body2">Rp {taxAmount.toLocaleString('id-ID')}</Typography>
+                  <Typography component="p" color="text.secondary" variant="body2">Nilai PPN:</Typography>
+                  <Typography component="p" color="text.secondary" variant="body2">Rp {taxAmount.toLocaleString('id-ID')}</Typography>
                 </Box>
                 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2, pt: 2, borderTop: '1px solid #ddd' }}>
-                  <Typography component="h6" variant="h6" fontWeight={700}>Total:</Typography>
-                  <Typography component="h6" variant="h6" fontWeight={700} color="primary">Rp {total.toLocaleString('id-ID')}</Typography>
+                  <Typography component="h6" variant="h6" sx={{ fontWeight: {700} }}>Total:</Typography>
+                  <Typography component="h6" variant="h6" color="primary" sx={{ fontWeight: {700} }}>Rp {total.toLocaleString('id-ID')}</Typography>
                 </Box>
               </Box>
             </Grid>

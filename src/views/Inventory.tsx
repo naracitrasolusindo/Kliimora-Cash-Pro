@@ -98,7 +98,7 @@ export default function Inventory() {
     <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 3 }}>
         <Box>
-          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Manajemen Stok Barang</Typography>
+          <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: "700" }}>Manajemen Stok Barang</Typography>
           <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola daftar barang, harga, dan ketersediaan stok</Typography>
         </Box>
         <Button variant="contained" onClick={handleOpen}>Tambah Barang</Button>
@@ -127,7 +127,7 @@ export default function Inventory() {
                   <TableCell>{row.description || '-'}</TableCell>
                   <TableCell align="right">{row.price.toLocaleString('id-ID')}</TableCell>
                   <TableCell align="right">
-                    <Typography color={row.stock <= 5 ? 'error' : 'inherit'} fontWeight={row.stock <= 5 ? 700 : 400}>
+                    <Typography component="p" color={row.stock <= 5 ? 'error' : 'inherit'} sx={{ fontWeight: {row.stock <= 5 ? 700 : 400} }}>
                       {row.stock}
                     </Typography>
                   </TableCell>
@@ -146,7 +146,7 @@ export default function Inventory() {
         <DialogTitle>{editModeId ? 'Edit Barang' : 'Tambah Barang'}</DialogTitle>
         <DialogContent dividers>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={4}>
+            <Grid size={{ xs: 12, sm: 4 }}>
               <TextField 
                 label="Kode Barang" 
                 fullWidth 
@@ -156,7 +156,7 @@ export default function Inventory() {
                 placeholder="BRG-001"
               />
             </Grid>
-            <Grid item xs={12} sm={8}>
+            <Grid size={{ xs: 12, sm: 8 }}>
               <TextField 
                 label="Nama Barang *" 
                 fullWidth 
@@ -165,7 +165,7 @@ export default function Inventory() {
                 onChange={e => setFormData({...formData, name: e.target.value})} 
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid size={{ xs: 12 }}>
               <TextField 
                 label="Deskripsi" 
                 fullWidth 
@@ -176,7 +176,7 @@ export default function Inventory() {
                 onChange={e => setFormData({...formData, description: e.target.value})} 
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField 
                 label="Harga Jual (Rp)" 
                 type="number"
@@ -186,7 +186,7 @@ export default function Inventory() {
                 onChange={e => setFormData({...formData, price: parseFloat(e.target.value) || 0})} 
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <TextField 
                 label="Stok Tersedia" 
                 type="number"

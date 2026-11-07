@@ -87,7 +87,7 @@ export default function Login() {
       </IconButton>
 
       <Paper sx={{ p: 4, maxWidth: 400, width: '100%' }} elevation={3}>
-        <Typography component="h5" variant="h5" component="h1" gutterBottom align="center" fontWeight="bold">
+        <Typography variant="h5" component="h1" gutterBottom align="center" sx={{ fontWeight: "bold" }}>
           Kliimora Cash Pro
         </Typography>
         <Typography component="p" variant="body2" gutterBottom align="center" color="text.secondary" sx={{ mb: 3 }}>
