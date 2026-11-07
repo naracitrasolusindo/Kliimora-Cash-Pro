@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import InfoIcon from '@mui/icons-material/Info';
 import PeopleIcon from '@mui/icons-material/People';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import { Box, Drawer, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Snackbar, Alert, Switch, FormControlLabel, TextField } from '@mui/material';
+import { Box, Drawer, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, Snackbar, Alert } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
@@ -11,7 +11,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import BookIcon from '@mui/icons-material/Book';
-import AssessmentIcon from '@mui/icons-material/Assessment';
+
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import SettingsIcon from '@mui/icons-material/Settings';
 import InventoryIcon from '@mui/icons-material/Inventory';
@@ -36,7 +36,7 @@ export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation();
   const { user, logout } = useAuthStore();
-  const { themeMode, toggleTheme, notification, closeNotification, globalStartDate, globalEndDate, setGlobalDateRange } = useAppStore();
+  const { themeMode, toggleTheme, notification, closeNotification } = useAppStore();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

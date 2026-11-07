@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { 
   Box, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, 
   Button, TextField, Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Chip,
@@ -277,7 +277,7 @@ export default function FixedAssets() {
                       <Chip label={a.status} size="small" color={a.status === 'ACTIVE' ? 'success' : 'default'} />
                     </TableCell>
                     <TableCell align="center">
-                      <IconButton size="small" onClick={() => handleOpenDialog(a)} color="primary">
+                      <IconButton size="small" onClick={() => handleOpen(a)} color="primary">
                         <EditIcon />
                       </IconButton>
                       <IconButton size="small" onClick={() => handleDelete(a.id)} color="error">

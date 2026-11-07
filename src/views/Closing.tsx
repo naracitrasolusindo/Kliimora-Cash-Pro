@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Typography, Paper, TextField, MenuItem, Button, Alert, CircularProgress, Divider } from '@mui/material';
 import { getDb } from '../lib/db';
-import { useAuthStore } from '../store/useAuthStore';
 
 export default function Closing() {
-  const { user } = useAuthStore();
   const [closingDate, setClosingDate] = useState<string>(new Date().toISOString().split('T')[0]);
   const [equities, setEquities] = useState<any[]>([]);
   const [selectedEquityId, setSelectedEquityId] = useState<number>(0);

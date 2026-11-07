@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Button, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Dialog, DialogTitle, DialogContent, DialogActions, TextField, MenuItem } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { getDb } from '../lib/db';
-import { useAuthStore } from '../store/useAuthStore';
 import { useAppStore } from '../store/useAppStore';
 
 interface Contact {
@@ -17,7 +16,6 @@ interface Contact {
 }
 
 export default function Contacts() {
-  const { user } = useAuthStore();
   const { showNotification } = useAppStore();
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [open, setOpen] = useState(false);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Typography, Grid, Paper, Box, Avatar, Chip } from '@mui/material';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
@@ -272,7 +272,7 @@ export default function Dashboard() {
                       dataKey="value"
                       stroke="none"
                     >
-                      {expenseData.map((entry, index) => {
+                      {expenseData.map((_, index) => {
                         const COLORS = ['#f44336', '#ff9800', '#ffc107', '#2196f3', '#9c27b0'];
                         return <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />;
                       })}

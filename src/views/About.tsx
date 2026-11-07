@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Box, Typography, Paper, Divider, Stack, Button, CircularProgress } from '@mui/material';
-import InfoIcon from '@mui/icons-material/Info';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import PersonIcon from '@mui/icons-material/Person';
@@ -24,16 +23,11 @@ export default function About() {
         );
         
         if (yes) {
-          let downloaded = 0;
-          let contentLength = 0;
-          
           await update.downloadAndInstall((event) => {
             switch (event.event) {
               case 'Started':
-                contentLength = event.data.contentLength || 0;
                 break;
               case 'Progress':
-                downloaded += event.data.chunkLength;
                 break;
               case 'Finished':
                 break;

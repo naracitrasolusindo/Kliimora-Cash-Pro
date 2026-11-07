@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, Typography, TextField, Button } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { Box, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Button } from '@mui/material';
 import { getDb } from '../lib/db';
 import ReportHeader from '../components/ReportHeader';
 import { exportCashFlowPDF } from '../lib/exportUtils';

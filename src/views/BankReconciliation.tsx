@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Typography, Paper, TextField, MenuItem, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox, Alert } from '@mui/material';
 import { getDb } from '../lib/db';
-import { useAuthStore } from '../store/useAuthStore';
 
 export default function BankReconciliation() {
-  const { user } = useAuthStore();
   const [accounts, setAccounts] = useState<any[]>([]);
   const [selectedAccountId, setSelectedAccountId] = useState<number>(0);
   const [statementDate, setStatementDate] = useState<string>(new Date().toISOString().split('T')[0]);
