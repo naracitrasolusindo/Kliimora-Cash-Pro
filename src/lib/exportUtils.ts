@@ -277,7 +277,7 @@ export const exportCashFlowPDF = async (data: CashFlowData) => {
     ];
 
     autoTable(doc, {
-      body: tableData,
+      body: tableData as any,
       startY: 45,
       theme: 'plain',
       styles: { cellPadding: 3, fontSize: 10 },

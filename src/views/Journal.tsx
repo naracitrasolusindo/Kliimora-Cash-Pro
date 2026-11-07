@@ -153,7 +153,7 @@ export default function Journal() {
           'INSERT INTO journal_entries (date, description, reference) VALUES ($1, $2, $3)',
           [formData.date, formData.description, formData.reference]
         );
-        entryId = result.lastInsertId;
+        entryId = result.lastInsertId ?? null;
       }
       
       for (const line of lines) {
@@ -320,7 +320,7 @@ export default function Journal() {
           <Typography component="h6" variant="subtitle1" color="text.secondary">Tampilan Baris per Baris</Typography>
         </Box>
         
-        <Grid container spacing={2} alignItems="center">
+        <Grid container spacing={2} sx={{ alignItems: 'center' }}>
           <Grid size={{ xs: 12, md: 5, lg: 4 }}>
             <Box sx={{ display: 'flex', gap: 2 }}>
               <TextField fullWidth label="Mulai Tanggal" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} size="small" slotProps={{ inputLabel: { shrink: true } }} />
@@ -335,13 +335,13 @@ export default function Journal() {
                 size="small"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                InputProps={{
+                slotProps={{ input: {
                   startAdornment: (
                     <InputAdornment position="start">
                       <SearchIcon fontSize="small" />
                     </InputAdornment>
                   ),
-                }}
+                } }}
                 sx={{ width: { xs: '100%', sm: 200 } }}
               />
               <Button variant="outlined" color="primary" onClick={downloadExcelTemplate} sx={{ minWidth: 100 }}>Template</Button>
@@ -397,7 +397,7 @@ export default function Journal() {
                     <TableCell sx={{ color: 'text.secondary' }}>{isNewEntry ? row.description : ''}</TableCell>
                     <TableCell sx={{ color: 'text.primary', pl: row.credit > 0 ? 4 : 2 }}>
                       {row.account_code} - {row.account_name}
-                      {row.contact_name && <Typography component="span" variant="caption" display="block" color="primary">@{row.contact_name}</Typography>}
+                      {row.contact_name && <Typography component="span" variant="caption" sx={{ display: 'block' }} color="primary">@{row.contact_name}</Typography>}
                     </TableCell>
                     <TableCell align="right">{row.debit > 0 ? formatRupiah(row.debit) : '-'}</TableCell>
                     <TableCell align="right">{row.credit > 0 ? formatRupiah(row.credit) : '-'}</TableCell>
@@ -431,7 +431,7 @@ export default function Journal() {
 
       {/* Dialog Add Journal */}
       <Dialog open={open} onClose={() => setOpen(false)} maxWidth="lg" fullWidth>
-        <DialogTitle fontWeight="bold">{editModeId ? 'Edit Jurnal Entri' : 'Tambah Jurnal Entri'}</DialogTitle>
+        <DialogTitle sx={{ fontWeight: 'bold' }}>{editModeId ? 'Edit Jurnal Entri' : 'Tambah Jurnal Entri'}</DialogTitle>
         <DialogContent sx={{ pt: 1 }}>
           <Grid container spacing={2} sx={{ mb: 3, mt: 1 }}>
             <Grid size={{ xs: 12, sm: 4 }}>

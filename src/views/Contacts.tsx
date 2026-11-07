@@ -133,7 +133,7 @@ export default function Contacts() {
       </TableContainer>
 
       <Dialog open={open} onClose={() => setOpen(false)} maxWidth="sm" fullWidth>
-        <DialogTitle fontWeight="bold">{isEdit ? 'Edit Kontak' : 'Tambah Kontak'}</DialogTitle>
+        <DialogTitle sx={{ fontWeight: 'bold' }}>{isEdit ? 'Edit Kontak' : 'Tambah Kontak'}</DialogTitle>
         <DialogContent sx={{ pt: 1 }}>
           <TextField 
             label="Nama Kontak" 

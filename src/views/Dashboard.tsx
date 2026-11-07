@@ -150,7 +150,7 @@ export default function Dashboard() {
               <AccountBalanceWalletIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: 600 }}>Total Kas & Bank</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" sx={{ fontWeight: 600, textTransform: 'uppercase' }}>Total Kas & Bank</Typography>
               <Typography component="h6" variant="h6" sx={{ fontWeight: "800" }}>{formatRupiah(stats.totalKas)}</Typography>
             </Box>
           </Paper>
@@ -162,7 +162,7 @@ export default function Dashboard() {
               <PointOfSaleIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: 600 }}>Total Piutang</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" sx={{ fontWeight: 600, textTransform: 'uppercase' }}>Total Piutang</Typography>
               <Typography component="h6" variant="h6" sx={{ fontWeight: "800" }}>{formatRupiah(stats.totalPiutang)}</Typography>
             </Box>
           </Paper>
@@ -174,7 +174,7 @@ export default function Dashboard() {
               <BusinessCenterIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: 600 }}>Total Aset</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" sx={{ fontWeight: 600, textTransform: 'uppercase' }}>Total Aset</Typography>
               <Typography component="h6" variant="h6" sx={{ fontWeight: "800" }}>{formatRupiah(stats.totalAset)}</Typography>
             </Box>
           </Paper>
@@ -194,7 +194,7 @@ export default function Dashboard() {
               <TrendingUpIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" sx={{ fontWeight: 600,  opacity: 0.9 }} textTransform="uppercase">Laba Bulan Ini</Typography>
+              <Typography component="span" variant="caption" sx={{ fontWeight: 600,  opacity: 0.9 , textTransform: 'uppercase' }}>Laba Bulan Ini</Typography>
               <Typography component="h6" variant="h6" sx={{ fontWeight: "800",  lineHeight: 1.2 }}>{formatRupiah(stats.labaBersihBulanIni)}</Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: 'rgba(255,255,255,0.2)', px: 0.8, py: 0.2, borderRadius: 1 }}>
@@ -226,7 +226,7 @@ export default function Dashboard() {
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#eee" />
                   <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#666' }} dy={10} />
                   <YAxis axisLine={false} tickLine={false} tickFormatter={(value) => `Rp ${(value/1000000).toFixed(0)}M`} tick={{ fill: '#666' }} />
-                  <Tooltip formatter={(value: number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(value)} />
+                  <Tooltip formatter={(value) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(Number(value))} />
                   <Area type="monotone" dataKey="Laba" stroke="#2196f3" strokeWidth={3} fillOpacity={1} fill="url(#colorLaba)" />
                 </AreaChart>
               </ResponsiveContainer>
@@ -241,7 +241,7 @@ export default function Dashboard() {
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#eee" />
                   <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#666' }} dy={10} />
                   <YAxis axisLine={false} tickLine={false} tickFormatter={(value) => `Rp ${(value/1000000).toFixed(0)}M`} tick={{ fill: '#666' }} />
-                  <Tooltip formatter={(value: number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(value)} cursor={{fill: 'rgba(0,0,0,0.02)'}} />
+                  <Tooltip formatter={(value) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(Number(value))} cursor={{fill: 'rgba(0,0,0,0.02)'}} />
                   <Legend wrapperStyle={{ paddingTop: '10px' }} />
                   <Bar dataKey="Pendapatan" fill="#4caf50" radius={[4, 4, 0, 0]} maxBarSize={40} />
                   <Bar dataKey="Pengeluaran" fill="#f44336" radius={[4, 4, 0, 0]} maxBarSize={40} />
@@ -277,7 +277,7 @@ export default function Dashboard() {
                         return <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />;
                       })}
                     </Pie>
-                    <Tooltip formatter={(value: number) => formatRupiah(value)} />
+                    <Tooltip formatter={(value) => formatRupiah(Number(value))} />
                     <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '0.8rem' }} />
                   </PieChart>
                 </ResponsiveContainer>

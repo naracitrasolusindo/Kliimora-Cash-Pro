@@ -509,7 +509,7 @@ export default function Bills() {
                       onChange={e => {
                         setFormData({...formData, tax_rate: e.target.value});
                       }}
-                      InputProps={{ endAdornment: '%' }}
+                      slotProps={{ input: { endAdornment: '%' } }}
                     />
                     <Typography>atau</Typography>
                     <TextField 

@@ -125,7 +125,7 @@ export default function Accounts() {
       </TableContainer>
 
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle fontWeight="bold">{editMode ? 'Edit Akun' : 'Tambah Akun'}</DialogTitle>
+        <DialogTitle sx={{ fontWeight: 'bold' }}>{editMode ? 'Edit Akun' : 'Tambah Akun'}</DialogTitle>
         <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: 1, minWidth: 400 }}>
           <TextField label="Kode Akun" value={formData.code} onChange={(e) => setFormData({ ...formData, code: e.target.value })} fullWidth slotProps={{ inputLabel: { shrink: true } }} sx={{ mt: 1 }} />
           <TextField label="Nama Akun" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} fullWidth slotProps={{ inputLabel: { shrink: true } }} />
