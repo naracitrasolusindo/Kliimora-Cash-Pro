@@ -114,7 +114,7 @@ export default function About() {
         </Box>
 
         <Box sx={{ mt: 4 }}>
-          <Typography component="p" variant="body2" color="text.secondary" sx={{ fontWeight: {600} }}>
+          <Typography component="p" variant="body2" color="text.secondary" sx={{ fontWeight: 600 }}>
             Team Kliimora &copy; 2026
           </Typography>
         </Box>

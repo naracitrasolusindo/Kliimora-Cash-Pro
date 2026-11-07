@@ -495,7 +495,7 @@ export default function Invoices() {
               <Box sx={{ p: 2, bgcolor: 'background.default', borderRadius: 2 }}>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                   <Typography>Subtotal:</Typography>
-                  <Typography component="p" sx={{ fontWeight: {600} }}>Rp {subtotal.toLocaleString('id-ID')}</Typography>
+                  <Typography component="p" sx={{ fontWeight: 600 }}>Rp {subtotal.toLocaleString('id-ID')}</Typography>
                 </Box>
                 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1, gap: 2 }}>
@@ -529,8 +529,8 @@ export default function Invoices() {
                 </Box>
                 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2, pt: 2, borderTop: '1px solid #ddd' }}>
-                  <Typography component="h6" variant="h6" sx={{ fontWeight: {700} }}>Total:</Typography>
-                  <Typography component="h6" variant="h6" color="primary" sx={{ fontWeight: {700} }}>Rp {total.toLocaleString('id-ID')}</Typography>
+                  <Typography component="h6" variant="h6" sx={{ fontWeight: 700 }}>Total:</Typography>
+                  <Typography component="h6" variant="h6" color="primary" sx={{ fontWeight: 700 }}>Rp {total.toLocaleString('id-ID')}</Typography>
                 </Box>
               </Box>
             </Grid>

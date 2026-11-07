@@ -150,7 +150,7 @@ export default function Dashboard() {
               <AccountBalanceWalletIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: {600} }}>Total Kas & Bank</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: 600 }}>Total Kas & Bank</Typography>
               <Typography component="h6" variant="h6" sx={{ fontWeight: "800" }}>{formatRupiah(stats.totalKas)}</Typography>
             </Box>
           </Paper>
@@ -162,7 +162,7 @@ export default function Dashboard() {
               <PointOfSaleIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: {600} }}>Total Piutang</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: 600 }}>Total Piutang</Typography>
               <Typography component="h6" variant="h6" sx={{ fontWeight: "800" }}>{formatRupiah(stats.totalPiutang)}</Typography>
             </Box>
           </Paper>
@@ -174,7 +174,7 @@ export default function Dashboard() {
               <BusinessCenterIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: {600} }}>Total Aset</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" textTransform="uppercase" sx={{ fontWeight: 600 }}>Total Aset</Typography>
               <Typography component="h6" variant="h6" sx={{ fontWeight: "800" }}>{formatRupiah(stats.totalAset)}</Typography>
             </Box>
           </Paper>
@@ -194,7 +194,7 @@ export default function Dashboard() {
               <TrendingUpIcon />
             </Avatar>
             <Box>
-              <Typography component="span" variant="caption" sx={{ fontWeight: {600},  opacity: 0.9 }} textTransform="uppercase">Laba Bulan Ini</Typography>
+              <Typography component="span" variant="caption" sx={{ fontWeight: 600,  opacity: 0.9 }} textTransform="uppercase">Laba Bulan Ini</Typography>
               <Typography component="h6" variant="h6" sx={{ fontWeight: "800",  lineHeight: 1.2 }}>{formatRupiah(stats.labaBersihBulanIni)}</Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: 'rgba(255,255,255,0.2)', px: 0.8, py: 0.2, borderRadius: 1 }}>

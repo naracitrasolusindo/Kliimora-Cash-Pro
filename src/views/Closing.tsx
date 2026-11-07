@@ -230,7 +230,7 @@ export default function Closing() {
             <Divider sx={{ my: 2 }} />
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Typography component="p" color="text.secondary" sx={{ fontWeight: "bold" }}>Laba / Rugi Bersih:</Typography>
-              <Typography component="p" color={preview.netIncome sx={{ fontWeight: "bold" }}>= 0 ? 'success.main' : 'error.main'} fontSize="1.1rem">
+              <Typography component="p" color={preview.netIncome >= 0 ? 'success.main' : 'error.main'} sx={{ fontWeight: "bold" }} fontSize="1.1rem">
                 {formatRupiah(preview.netIncome)}
               </Typography>
             </Box>

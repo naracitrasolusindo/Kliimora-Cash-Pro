@@ -127,7 +127,7 @@ export default function Inventory() {
                   <TableCell>{row.description || '-'}</TableCell>
                   <TableCell align="right">{row.price.toLocaleString('id-ID')}</TableCell>
                   <TableCell align="right">
-                    <Typography component="p" color={row.stock <= 5 ? 'error' : 'inherit'} sx={{ fontWeight: {row.stock <= 5 ? 700 : 400} }}>
+                    <Typography component="p" color={row.stock <= 5 ? 'error' : 'inherit'} sx={{ fontWeight: row.stock <= 5 ? 700 : 400 }}>
                       {row.stock}
                     </Typography>
                   </TableCell>
