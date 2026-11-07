@@ -4,6 +4,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
 import { getDb, reloadDbConnection } from '../lib/db';
+import { verifyPassword, isHashed, hashPassword } from '../lib/auth';
 import { open } from '@tauri-apps/plugin-dialog';
 
 export default function Login() {
@@ -20,15 +21,29 @@ export default function Login() {
     setError('');
     
     try {
-      const db = await getDb();
-      const users = await db.select<any[]>('SELECT * FROM users WHERE username = $1 AND password_hash = $2', [username, password]);
-      
-      if (users.length > 0) {
-        login({ id: users[0].id, username: users[0].username, role: users[0].role });
-        navigate('/');
-      } else {
+            const db = await getDb();
+      const users = await db.select<any[]>('SELECT * FROM users WHERE username = $1', [username]);
+
+      if (users.length === 0) {
         setError('Username atau password salah');
+        return;
       }
+
+      const user = users[0];
+      const ok = await verifyPassword(password, user.password_hash);
+      if (!ok) {
+        setError('Username atau password salah');
+        return;
+      }
+
+      // Upgrade password polos (legacy) menjadi hash saat login berhasil.
+      if (!isHashed(user.password_hash)) {
+        const hashed = await hashPassword(password);
+        await db.execute('UPDATE users SET password_hash = $1 WHERE id = $2', [hashed, user.id]);
+      }
+
+      login({ id: user.id, username: user.username, role: user.role });
+      navigate('/');
     } catch (err: any) {
       setError(err.message || 'Terjadi kesalahan sistem saat mencoba login');
     }

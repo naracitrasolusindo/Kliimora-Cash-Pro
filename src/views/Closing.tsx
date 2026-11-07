@@ -77,6 +77,16 @@ export default function Closing() {
       setLoading(true);
       const db = await getDb();
       
+      // Guard: cegah tutup buku ganda pada periode yang sama/bertumpuk.
+      // Komputasi saldo di bawah mengecualikan entri is_closing, jadi tanpa guard
+      // ini eksekusi ulang akan membuat Jurnal Penutup duplikat dan mendobel
+      // transfer laba ke ekuitas.
+      const alreadyClosed = await db.select<any[]>('SELECT date FROM journal_entries WHERE is_closing = 1 AND date <= $1 ORDER BY date DESC LIMIT 1', [closingDate]);
+      if (alreadyClosed.length > 0) {
+        setMessage({ type: 'error', text: `Periode ini sudah ditutup (Jurnal Penutup ${alreadyClosed[0].date}). Tutup buku tidak dapat dijalankan dua kali.` });
+        return;
+      }
+
       const accounts = await db.select<any[]>(`
         SELECT 
           a.id, a.type, a.initial_balance,

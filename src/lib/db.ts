@@ -1,4 +1,5 @@
 import Database from '@tauri-apps/plugin-sql';
+import { hashPassword } from './auth';
 
 export const COA_PSAK = [
   // Aset (Assets)
@@ -100,7 +101,7 @@ export async function initDbAndSeed() {
   // 3. Cek & Insert Admin
   await db.execute(
     'INSERT OR IGNORE INTO users (username, password_hash, role) VALUES (?, ?, ?)',
-    ['admin', 'admin123', 'admin']
+    ['admin', await hashPassword('admin123'), 'admin']
   );
 
   // 4. Default Settings

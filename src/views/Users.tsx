@@ -3,6 +3,7 @@ import { Box, Button, Typography, Paper, Table, TableBody, TableCell, TableConta
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { getDb } from '../lib/db';
+import { hashPassword } from '../lib/auth';
 import { useAuthStore } from '../store/useAuthStore';
 import { useAppStore } from '../store/useAppStore';
 
@@ -47,13 +48,15 @@ export default function Users() {
       const db = await getDb();
       if (isEdit) {
         if (formData.password) {
-          await db.execute('UPDATE users SET username = ?, password_hash = ?, role = ? WHERE id = ?', [formData.username, formData.password, formData.role, formData.id]);
+          const hashed = await hashPassword(formData.password);
+          await db.execute('UPDATE users SET username = ?, password_hash = ?, role = ? WHERE id = ?', [formData.username, hashed, formData.role, formData.id]);
         } else {
           await db.execute('UPDATE users SET username = ?, role = ? WHERE id = ?', [formData.username, formData.role, formData.id]);
         }
       } else {
         if (!formData.password) return showNotification('Password wajib diisi untuk pengguna baru!', 'warning');
-        await db.execute('INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)', [formData.username, formData.password, formData.role]);
+        const hashed = await hashPassword(formData.password);
+        await db.execute('INSERT INTO users (username, password_hash, role) VALUES (?, ?, ?)', [formData.username, hashed, formData.role]);
       }
       setOpen(false);
       loadData();

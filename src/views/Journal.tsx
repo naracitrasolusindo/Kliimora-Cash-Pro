@@ -10,7 +10,7 @@ import { formatDateID } from '../lib/dateUtils';
 import { useAuthStore } from '../store/useAuthStore';
 import { useSettingsStore } from '../store/useSettingsStore';
 import { useAppStore } from '../store/useAppStore';
-import { open } from '@tauri-apps/plugin-dialog';
+import { open as openDialog } from '@tauri-apps/plugin-dialog';
 import { readFile } from '@tauri-apps/plugin-fs';
 import * as XLSX from 'xlsx';
 
@@ -131,8 +131,8 @@ export default function Journal() {
 
   const totalDebitInput = lines.reduce((sum, line) => sum + (line.debit || 0), 0);
   const totalCreditInput = lines.reduce((sum, line) => sum + (line.credit || 0), 0);
-  const isBalanced = totalDebitInput > 0 && totalDebitInput === totalCreditInput;
-  const isLinesValid = lines.every(l => l.account_id > 0 && (l.debit > 0 || l.credit > 0));
+  const isBalanced = totalDebitInput > 0 && Math.abs(totalDebitInput - totalCreditInput) < 0.01;
+  const isLinesValid = lines.every(l => l.account_id > 0 && ((l.debit > 0) !== (l.credit > 0)));
 
   const handleSave = async () => {
     if (!isBalanced) return showNotification('Total Debit dan Kredit harus seimbang!', 'warning');
@@ -204,12 +204,13 @@ export default function Journal() {
       'Debit': row.debit,
       'Kredit': row.credit
     }));
-    exportToExcel(`Jurnal_Umum_${filterYear}_${filterMonth}`, excelData);
+    const [expYear, expMonth] = startDate.split('-');
+    exportToExcel(`Jurnal_Umum_${expYear}_${expMonth}`, excelData);
   };
 
   const handleImportExcel = async () => {
     try {
-      const selectedPath = await open({
+      const selectedPath = await openDialog({
         multiple: false,
         filters: [{ name: 'Excel Spreadsheet', extensions: ['xlsx', 'xls'] }]
       });
