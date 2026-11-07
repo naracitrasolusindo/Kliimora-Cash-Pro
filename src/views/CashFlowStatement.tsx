@@ -141,7 +141,7 @@ export default function CashFlowStatement() {
           size="small"
           value={startDate}
           onChange={(e) => setStartDate(e.target.value)}
-          InputLabelProps={{ shrink: true }}
+          slotProps={{ inputLabel: { shrink: true } }}
         />
         <TextField
           label="Sampai Tanggal"
@@ -149,7 +149,7 @@ export default function CashFlowStatement() {
           size="small"
           value={endDate}
           onChange={(e) => setEndDate(e.target.value)}
-          InputLabelProps={{ shrink: true }}
+          slotProps={{ inputLabel: { shrink: true } }}
         />
         <Button variant="outlined" onClick={handlePrint}>Cetak PDF</Button>
       </Box>

@@ -316,15 +316,15 @@ export default function Journal() {
     <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
       <Box sx={{ mb: 3 }}>
         <Box sx={{ mb: 2 }}>
-          <Typography variant="h4" fontWeight="700" color="primary">Jurnal Umum</Typography>
-          <Typography variant="subtitle1" color="text.secondary">Tampilan Baris per Baris</Typography>
+          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Jurnal Umum</Typography>
+          <Typography component="h6" variant="subtitle1" color="text.secondary">Tampilan Baris per Baris</Typography>
         </Box>
         
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} md={5} lg={4}>
             <Box sx={{ display: 'flex', gap: 2 }}>
-              <TextField fullWidth label="Mulai Tanggal" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} size="small" InputLabelProps={{ shrink: true }} />
-              <TextField fullWidth label="Sampai Tanggal" type="date" value={endDate} onChange={e => setEndDate(e.target.value)} size="small" InputLabelProps={{ shrink: true }} />
+              <TextField fullWidth label="Mulai Tanggal" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} size="small" slotProps={{ inputLabel: { shrink: true } }} />
+              <TextField fullWidth label="Sampai Tanggal" type="date" value={endDate} onChange={e => setEndDate(e.target.value)} size="small" slotProps={{ inputLabel: { shrink: true } }} />
             </Box>
           </Grid>
           
@@ -397,7 +397,7 @@ export default function Journal() {
                     <TableCell sx={{ color: 'text.secondary' }}>{isNewEntry ? row.description : ''}</TableCell>
                     <TableCell sx={{ color: 'text.primary', pl: row.credit > 0 ? 4 : 2 }}>
                       {row.account_code} - {row.account_name}
-                      {row.contact_name && <Typography variant="caption" display="block" color="primary">@{row.contact_name}</Typography>}
+                      {row.contact_name && <Typography component="span" variant="caption" display="block" color="primary">@{row.contact_name}</Typography>}
                     </TableCell>
                     <TableCell align="right">{row.debit > 0 ? formatRupiah(row.debit) : '-'}</TableCell>
                     <TableCell align="right">{row.credit > 0 ? formatRupiah(row.credit) : '-'}</TableCell>
@@ -435,21 +435,21 @@ export default function Journal() {
         <DialogContent sx={{ pt: 1 }}>
           <Grid container spacing={2} sx={{ mb: 3, mt: 1 }}>
             <Grid item xs={12} sm={4}>
-              <TextField label="Tanggal" type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} fullWidth size="small" variant="outlined" InputLabelProps={{ shrink: true }} />
+              <TextField label="Tanggal" type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} fullWidth size="small" variant="outlined" slotProps={{ inputLabel: { shrink: true } }} />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <TextField label="No. Referensi" value={formData.reference} onChange={(e) => setFormData({ ...formData, reference: e.target.value })} fullWidth size="small" variant="outlined" InputLabelProps={{ shrink: true }} />
+              <TextField label="No. Referensi" value={formData.reference} onChange={(e) => setFormData({ ...formData, reference: e.target.value })} fullWidth size="small" variant="outlined" slotProps={{ inputLabel: { shrink: true } }} />
             </Grid>
             <Grid item xs={12} sm={4}>
-              <TextField label="Keterangan" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} fullWidth size="small" variant="outlined" InputLabelProps={{ shrink: true }} />
+              <TextField label="Keterangan" value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} fullWidth size="small" variant="outlined" slotProps={{ inputLabel: { shrink: true } }} />
             </Grid>
           </Grid>
 
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>Baris Jurnal</Typography>
+          <Typography component="h6" variant="subtitle1" fontWeight="bold" gutterBottom>Baris Jurnal</Typography>
           {lines.map((line, index) => (
             <Grid container spacing={2} sx={{ mb: 2, alignItems: 'center' }} key={index}>
               <Grid item xs={12} sm={4}>
-                <TextField select label="Akun" value={line.account_id} onChange={(e) => updateLine(index, 'account_id', parseInt(e.target.value))} fullWidth size="small" InputLabelProps={{ shrink: true }}>
+                <TextField select label="Akun" value={line.account_id} onChange={(e) => updateLine(index, 'account_id', parseInt(e.target.value))} fullWidth size="small" slotProps={{ inputLabel: { shrink: true } }}>
                   <MenuItem value={0} disabled>Pilih Akun</MenuItem>
                   {accounts.map(acc => (
                     <MenuItem key={acc.id} value={acc.id}>{acc.code} - {acc.name}</MenuItem>
@@ -457,7 +457,7 @@ export default function Journal() {
                 </TextField>
               </Grid>
               <Grid item xs={12} sm={3}>
-                <TextField select label="Kontak (Opsional)" value={line.contact_id} onChange={(e) => updateLine(index, 'contact_id', parseInt(e.target.value))} fullWidth size="small" InputLabelProps={{ shrink: true }}>
+                <TextField select label="Kontak (Opsional)" value={line.contact_id} onChange={(e) => updateLine(index, 'contact_id', parseInt(e.target.value))} fullWidth size="small" slotProps={{ inputLabel: { shrink: true } }}>
                   <MenuItem value={0}>- Tanpa Kontak -</MenuItem>
                   {contacts.map(c => (
                     <MenuItem key={c.id} value={c.id}>{c.name}</MenuItem>
@@ -465,10 +465,10 @@ export default function Journal() {
                 </TextField>
               </Grid>
               <Grid item xs={12} sm={2}>
-                <TextField label="Debit (Rp)" type="number" value={line.debit || ''} onChange={(e) => updateLine(index, 'debit', parseFloat(e.target.value) || 0)} disabled={line.credit > 0} fullWidth size="small" InputLabelProps={{ shrink: true }}/>
+                <TextField label="Debit (Rp)" type="number" value={line.debit || ''} onChange={(e) => updateLine(index, 'debit', parseFloat(e.target.value) || 0)} disabled={line.credit > 0} fullWidth size="small" slotProps={{ inputLabel: { shrink: true } }}/>
               </Grid>
               <Grid item xs={12} sm={2}>
-                <TextField label="Kredit (Rp)" type="number" value={line.credit || ''} onChange={(e) => updateLine(index, 'credit', parseFloat(e.target.value) || 0)} disabled={line.debit > 0} fullWidth size="small" InputLabelProps={{ shrink: true }}/>
+                <TextField label="Kredit (Rp)" type="number" value={line.credit || ''} onChange={(e) => updateLine(index, 'credit', parseFloat(e.target.value) || 0)} disabled={line.debit > 0} fullWidth size="small" slotProps={{ inputLabel: { shrink: true } }}/>
               </Grid>
               <Grid item xs={12} sm={1}>
                 <IconButton color="error" onClick={() => removeLine(index)} disabled={lines.length <= 2}><DeleteIcon /></IconButton>

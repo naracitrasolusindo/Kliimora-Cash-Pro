@@ -139,8 +139,8 @@ export default function Dashboard() {
   return (
     <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
       <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" fontWeight="800" color="text.primary">Dashboard</Typography>
-        <Typography variant="subtitle1" color="text.secondary">Ringkasan Sistem Keuangan Anda</Typography>
+        <Typography component="h4" variant="h4" fontWeight="800" color="text.primary">Dashboard</Typography>
+        <Typography component="h6" variant="subtitle1" color="text.secondary">Ringkasan Sistem Keuangan Anda</Typography>
       </Box>
 
       <Grid container spacing={3} sx={{ mb: 4 }}>
@@ -150,8 +150,8 @@ export default function Dashboard() {
               <AccountBalanceWalletIcon />
             </Avatar>
             <Box>
-              <Typography variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase">Total Kas & Bank</Typography>
-              <Typography variant="h6" fontWeight="800">{formatRupiah(stats.totalKas)}</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase">Total Kas & Bank</Typography>
+              <Typography component="h6" variant="h6" fontWeight="800">{formatRupiah(stats.totalKas)}</Typography>
             </Box>
           </Paper>
         </Grid>
@@ -162,8 +162,8 @@ export default function Dashboard() {
               <PointOfSaleIcon />
             </Avatar>
             <Box>
-              <Typography variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase">Total Piutang</Typography>
-              <Typography variant="h6" fontWeight="800">{formatRupiah(stats.totalPiutang)}</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase">Total Piutang</Typography>
+              <Typography component="h6" variant="h6" fontWeight="800">{formatRupiah(stats.totalPiutang)}</Typography>
             </Box>
           </Paper>
         </Grid>
@@ -174,8 +174,8 @@ export default function Dashboard() {
               <BusinessCenterIcon />
             </Avatar>
             <Box>
-              <Typography variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase">Total Aset</Typography>
-              <Typography variant="h6" fontWeight="800">{formatRupiah(stats.totalAset)}</Typography>
+              <Typography component="span" variant="caption" color="text.secondary" fontWeight={600} textTransform="uppercase">Total Aset</Typography>
+              <Typography component="h6" variant="h6" fontWeight="800">{formatRupiah(stats.totalAset)}</Typography>
             </Box>
           </Paper>
         </Grid>
@@ -194,12 +194,12 @@ export default function Dashboard() {
               <TrendingUpIcon />
             </Avatar>
             <Box>
-              <Typography variant="caption" sx={{ opacity: 0.9 }} fontWeight={600} textTransform="uppercase">Laba Bulan Ini</Typography>
-              <Typography variant="h6" fontWeight="800" sx={{ lineHeight: 1.2 }}>{formatRupiah(stats.labaBersihBulanIni)}</Typography>
+              <Typography component="span" variant="caption" sx={{ opacity: 0.9 }} fontWeight={600} textTransform="uppercase">Laba Bulan Ini</Typography>
+              <Typography component="h6" variant="h6" fontWeight="800" sx={{ lineHeight: 1.2 }}>{formatRupiah(stats.labaBersihBulanIni)}</Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', bgcolor: 'rgba(255,255,255,0.2)', px: 0.8, py: 0.2, borderRadius: 1 }}>
                   {stats.momGrowth >= 0 ? <ArrowUpwardIcon sx={{ fontSize: 14, mr: 0.3 }} /> : <ArrowDownwardIcon sx={{ fontSize: 14, mr: 0.3 }} />}
-                  <Typography variant="caption" sx={{ fontWeight: 700, fontSize: '0.7rem' }}>
+                  <Typography component="span" variant="caption" sx={{ fontWeight: 700, fontSize: '0.7rem' }}>
                     {Math.abs(stats.momGrowth).toFixed(1)}%
                   </Typography>
                 </Box>
@@ -213,7 +213,7 @@ export default function Dashboard() {
       <Grid container spacing={3}>
         <Grid item xs={12} md={8}>
           <Paper sx={{ p: 3, borderRadius: 3, boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #f0f0f0', mb: 3 }}>
-            <Typography variant="h6" fontWeight="700" color="text.primary" gutterBottom>Tren Laba Bersih (6 Bulan Terakhir)</Typography>
+            <Typography component="h6" variant="h6" fontWeight="700" color="text.primary" gutterBottom>Tren Laba Bersih (6 Bulan Terakhir)</Typography>
             <Box sx={{ height: 300, mt: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -234,7 +234,7 @@ export default function Dashboard() {
           </Paper>
 
           <Paper sx={{ p: 3, borderRadius: 3, boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #f0f0f0' }}>
-            <Typography variant="h6" fontWeight="700" color="text.primary" gutterBottom>Pendapatan vs Pengeluaran</Typography>
+            <Typography component="h6" variant="h6" fontWeight="700" color="text.primary" gutterBottom>Pendapatan vs Pengeluaran</Typography>
             <Box sx={{ height: 300, mt: 2 }}>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
@@ -253,7 +253,7 @@ export default function Dashboard() {
 
         <Grid item xs={12} md={4}>
           <Paper sx={{ p: 3, borderRadius: 3, boxShadow: '0 10px 30px rgba(0,0,0,0.05)', border: '1px solid #f0f0f0', height: '100%' }}>
-            <Typography variant="h6" fontWeight="700" color="text.primary" gutterBottom>Top 5 Pengeluaran Bulan Ini</Typography>
+            <Typography component="h6" variant="h6" fontWeight="700" color="text.primary" gutterBottom>Top 5 Pengeluaran Bulan Ini</Typography>
             {expenseData.length === 0 ? (
               <Box sx={{ display: 'flex', height: 250, alignItems: 'center', justifyContent: 'center' }}>
                 <Typography color="text.secondary">Belum ada pengeluaran.</Typography>

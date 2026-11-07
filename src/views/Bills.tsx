@@ -300,8 +300,8 @@ export default function Bills() {
     <Box sx={{ maxWidth: 1200, mx: 'auto' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box>
-          <Typography variant="h4" fontWeight="700" color="primary">Tagihan Pemasok (Bills)</Typography>
-          <Typography variant="subtitle1" color="text.secondary">Kelola penagihan dari Pemasok</Typography>
+          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Tagihan Pemasok (Bills)</Typography>
+          <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola penagihan dari Pemasok</Typography>
         </Box>
         <Button variant="contained" onClick={handleOpen}>Buat Tagihan Pemasok</Button>
       </Box>
@@ -383,7 +383,7 @@ export default function Bills() {
                 label="Tanggal Tagihan Pemasok" 
                 type="date" 
                 fullWidth size="small" 
-                InputLabelProps={{ shrink: true }} 
+                slotProps={{ inputLabel: { shrink: true } }} 
                 value={formData.date} 
                 onChange={e => setFormData({...formData, date: e.target.value})} 
               />
@@ -393,7 +393,7 @@ export default function Bills() {
                 label="Jatuh Tempo" 
                 type="date" 
                 fullWidth size="small" 
-                InputLabelProps={{ shrink: true }} 
+                slotProps={{ inputLabel: { shrink: true } }} 
                 value={formData.due_date} 
                 onChange={e => setFormData({...formData, due_date: e.target.value})} 
               />
@@ -413,7 +413,7 @@ export default function Bills() {
             </Grid>
           </Grid>
 
-          <Typography variant="h6" sx={{ mb: 2 }}>Detail Barang / Jasa</Typography>
+          <Typography component="h6" variant="h6" sx={{ mb: 2 }}>Detail Barang / Jasa</Typography>
           <TableContainer component={Paper} variant="outlined" sx={{ mb: 3 }}>
             <Table size="small">
               <TableHead sx={{ bgcolor: 'action.hover' }}>
@@ -529,8 +529,8 @@ export default function Bills() {
                 </Box>
                 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2, pt: 2, borderTop: '1px solid #ddd' }}>
-                  <Typography variant="h6" fontWeight={700}>Total:</Typography>
-                  <Typography variant="h6" fontWeight={700} color="primary">Rp {total.toLocaleString('id-ID')}</Typography>
+                  <Typography component="h6" variant="h6" fontWeight={700}>Total:</Typography>
+                  <Typography component="h6" variant="h6" fontWeight={700} color="primary">Rp {total.toLocaleString('id-ID')}</Typography>
                 </Box>
               </Box>
             </Grid>

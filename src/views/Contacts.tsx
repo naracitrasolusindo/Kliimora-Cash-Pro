@@ -85,8 +85,8 @@ export default function Contacts() {
     <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box>
-          <Typography variant="h4" fontWeight="700" color="primary">Buku Kontak</Typography>
-          <Typography variant="subtitle1" color="text.secondary">Kelola Pelanggan dan Pemasok Anda</Typography>
+          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Buku Kontak</Typography>
+          <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola Pelanggan dan Pemasok Anda</Typography>
         </Box>
         <Button variant="contained" onClick={() => handleOpen()}>Tambah Kontak</Button>
       </Box>
@@ -111,7 +111,7 @@ export default function Contacts() {
               <TableRow key={c.id} hover>
                 <TableCell sx={{ fontWeight: 500 }}>{c.name}</TableCell>
                 <TableCell>
-                  <Typography variant="body2" sx={{ 
+                  <Typography component="p" variant="body2" sx={{ 
                     display: 'inline-block', px: 1, py: 0.5, borderRadius: 1, fontWeight: 600,
                     bgcolor: c.type === 'customer' ? '#e3f2fd' : '#fce4ec',
                     color: c.type === 'customer' ? '#1976d2' : '#c2185b'
@@ -141,7 +141,7 @@ export default function Contacts() {
             onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
             fullWidth 
             sx={{ mb: 2, mt: 1 }} 
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
           />
           <TextField 
             select 
@@ -150,7 +150,7 @@ export default function Contacts() {
             onChange={(e) => setFormData({ ...formData, type: e.target.value })} 
             fullWidth
             sx={{ mb: 2 }}
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
           >
             <MenuItem value="customer">Pelanggan (Customer)</MenuItem>
             <MenuItem value="vendor">Pemasok (Vendor)</MenuItem>
@@ -162,7 +162,7 @@ export default function Contacts() {
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })} 
             fullWidth 
             sx={{ mb: 2 }} 
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
           />
           <TextField 
             label="Email" 
@@ -171,7 +171,7 @@ export default function Contacts() {
             onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
             fullWidth 
             sx={{ mb: 2 }} 
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
           />
           <TextField 
             label="NPWP (16 Digit)" 
@@ -183,7 +183,7 @@ export default function Contacts() {
             }} 
             fullWidth 
             sx={{ mb: 2 }} 
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
           />
           <TextField 
             label="Alamat" 
@@ -192,7 +192,7 @@ export default function Contacts() {
             value={formData.address} 
             onChange={(e) => setFormData({ ...formData, address: e.target.value })} 
             fullWidth 
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
           />
         </DialogContent>
         <DialogActions sx={{ p: 2 }}>

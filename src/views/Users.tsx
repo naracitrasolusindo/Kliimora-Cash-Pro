@@ -91,8 +91,8 @@ export default function Users() {
     <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box>
-          <Typography variant="h4" color="primary" sx={{ fontWeight: 700 }}>Manajemen Pengguna</Typography>
-          <Typography variant="subtitle1" color="text.secondary">Kelola akses dan hak pengguna aplikasi</Typography>
+          <Typography component="h4" variant="h4" color="primary" sx={{ fontWeight: 700 }}>Manajemen Pengguna</Typography>
+          <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola akses dan hak pengguna aplikasi</Typography>
         </Box>
         <Button variant="contained" onClick={() => handleOpen()}>Tambah Pengguna</Button>
       </Box>

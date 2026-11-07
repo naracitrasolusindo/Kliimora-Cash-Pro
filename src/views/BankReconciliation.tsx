@@ -131,8 +131,8 @@ export default function BankReconciliation() {
 
   return (
     <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
-      <Typography variant="h4" fontWeight="700" color="primary" sx={{ mb: 1 }}>Rekonsiliasi Bank</Typography>
-      <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 4 }}>Cocokkan catatan buku kas dengan mutasi rekening koran asli</Typography>
+      <Typography component="h4" variant="h4" fontWeight="700" color="primary" sx={{ mb: 1 }}>Rekonsiliasi Bank</Typography>
+      <Typography component="h6" variant="subtitle1" color="text.secondary" sx={{ mb: 4 }}>Cocokkan catatan buku kas dengan mutasi rekening koran asli</Typography>
 
       {message && (
         <Alert severity={message.type} sx={{ mb: 3 }} onClose={() => setMessage(null)}>
@@ -163,7 +163,7 @@ export default function BankReconciliation() {
             fullWidth
             value={statementDate}
             onChange={(e) => setStatementDate(e.target.value)}
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
           />
 
           <TextField
@@ -235,7 +235,7 @@ export default function BankReconciliation() {
 
         <Box sx={{ flex: 1 }}>
           <Paper sx={{ p: 3, borderRadius: 2, bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider' }}>
-            <Typography variant="h6" fontWeight="bold" sx={{ mb: 2 }}>Ringkasan Saldo</Typography>
+            <Typography component="h6" variant="h6" fontWeight="bold" sx={{ mb: 2 }}>Ringkasan Saldo</Typography>
             
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
               <Typography color="text.secondary">Saldo Awal Terekonsiliasi</Typography>
@@ -275,7 +275,7 @@ export default function BankReconciliation() {
               Selesaikan Rekonsiliasi
             </Button>
             {difference !== 0 && (
-              <Typography variant="caption" color="error" sx={{ display: 'block', mt: 1, textAlign: 'center' }}>
+              <Typography component="span" variant="caption" color="error" sx={{ display: 'block', mt: 1, textAlign: 'center' }}>
                 Selisih harus Rp 0 untuk menyelesaikan.
               </Typography>
             )}

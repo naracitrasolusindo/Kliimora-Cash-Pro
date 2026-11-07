@@ -109,7 +109,7 @@ export default function Settings() {
 
   return (
     <Box sx={{ maxWidth: 800, mx: 'auto', mt: 4, pb: 6 }}>
-      <Typography variant="h4" color="primary" gutterBottom sx={{ fontWeight: 700 }}>
+      <Typography component="h4" variant="h4" color="primary" gutterBottom sx={{ fontWeight: 700 }}>
         Pengaturan Aplikasi
       </Typography>
       
@@ -120,7 +120,7 @@ export default function Settings() {
       )}
 
       <Paper sx={{ p: 4, borderRadius: 3, boxShadow: '0 4px 20px rgba(0,0,0,0.05)', mb: 4 }}>
-        <Typography variant="h6" sx={{ mb: 3, fontWeight: 'bold' }}>
+        <Typography component="h6" variant="h6" sx={{ mb: 3, fontWeight: 'bold' }}>
           Informasi Perusahaan
         </Typography>
         
@@ -184,7 +184,7 @@ export default function Settings() {
             />
           </Grid>
           <Grid size={{ xs: 12 }}>
-            <Typography variant="subtitle2" sx={{ mb: 1, color: 'text.secondary' }}>Logo Perusahaan (Tampil di Invoice)</Typography>
+            <Typography component="h6" variant="subtitle2" sx={{ mb: 1, color: 'text.secondary' }}>Logo Perusahaan (Tampil di Invoice)</Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               {logo && <Box component="img" src={logo} sx={{ height: 60, width: 'auto', border: '1px solid #ccc', borderRadius: 1 }} />}
               <Button variant="outlined" component="label">
@@ -209,10 +209,10 @@ export default function Settings() {
       </Paper>
 
       <Paper sx={{ p: 4, borderRadius: 3, boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-        <Typography variant="h6" sx={{ mb: 1, fontWeight: 'bold' }}>
+        <Typography component="h6" variant="h6" sx={{ mb: 1, fontWeight: 'bold' }}>
           Manajemen Database
         </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+        <Typography component="p" variant="body2" color="text.secondary" sx={{ mb: 3 }}>
           Backup data Anda secara berkala untuk mencegah kehilangan data. File backup dapat di-restore kapan saja.
         </Typography>
         <Divider sx={{ mb: 3 }} />

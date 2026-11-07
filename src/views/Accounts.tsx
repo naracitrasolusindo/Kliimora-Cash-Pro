@@ -92,7 +92,7 @@ export default function Accounts() {
   return (
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-        <Typography variant="h4" fontWeight="bold" color="primary">Daftar Akun (COA)</Typography>
+        <Typography component="h4" variant="h4" fontWeight="bold" color="primary">Daftar Akun (COA)</Typography>
         <Button variant="contained" onClick={() => handleOpen()} sx={{ borderRadius: 2 }}>Tambah Akun</Button>
       </Box>
 
@@ -127,16 +127,16 @@ export default function Accounts() {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle fontWeight="bold">{editMode ? 'Edit Akun' : 'Tambah Akun'}</DialogTitle>
         <DialogContent sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: 1, minWidth: 400 }}>
-          <TextField label="Kode Akun" value={formData.code} onChange={(e) => setFormData({ ...formData, code: e.target.value })} fullWidth InputLabelProps={{ shrink: true }} sx={{ mt: 1 }} />
-          <TextField label="Nama Akun" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} fullWidth InputLabelProps={{ shrink: true }} />
-          <TextField select label="Tipe Akun" value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })} fullWidth InputLabelProps={{ shrink: true }}>
+          <TextField label="Kode Akun" value={formData.code} onChange={(e) => setFormData({ ...formData, code: e.target.value })} fullWidth slotProps={{ inputLabel: { shrink: true } }} sx={{ mt: 1 }} />
+          <TextField label="Nama Akun" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} fullWidth slotProps={{ inputLabel: { shrink: true } }} />
+          <TextField select label="Tipe Akun" value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })} fullWidth slotProps={{ inputLabel: { shrink: true } }}>
             <MenuItem value="asset">Aset (Asset)</MenuItem>
             <MenuItem value="liability">Kewajiban (Liability)</MenuItem>
             <MenuItem value="equity">Ekuitas (Equity)</MenuItem>
             <MenuItem value="revenue">Pendapatan (Revenue)</MenuItem>
             <MenuItem value="expense">Beban (Expense)</MenuItem>
           </TextField>
-          <TextField label="Saldo Awal (Rp)" type="number" value={formData.initial_balance} onChange={(e) => setFormData({ ...formData, initial_balance: parseFloat(e.target.value) || 0 })} fullWidth InputLabelProps={{ shrink: true }} />
+          <TextField label="Saldo Awal (Rp)" type="number" value={formData.initial_balance} onChange={(e) => setFormData({ ...formData, initial_balance: parseFloat(e.target.value) || 0 })} fullWidth slotProps={{ inputLabel: { shrink: true } }} />
         </DialogContent>
         <DialogActions sx={{ p: 2 }}>
           <Button onClick={handleClose}>Batal</Button>

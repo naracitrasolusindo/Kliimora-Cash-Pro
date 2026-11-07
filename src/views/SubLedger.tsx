@@ -141,7 +141,7 @@ export default function SubLedger() {
                 <TableCell>{row.reference}</TableCell>
                 <TableCell>
                   {row.description}
-                  <Typography variant="caption" color="primary" sx={{ display: 'block' }}>{row.account_name}</Typography>
+                  <Typography component="span" variant="caption" color="primary" sx={{ display: 'block' }}>{row.account_name}</Typography>
                 </TableCell>
                 <TableCell align="right">{row.debit > 0 ? formatRupiah(row.debit) : '-'}</TableCell>
                 <TableCell align="right">{row.credit > 0 ? formatRupiah(row.credit) : '-'}</TableCell>

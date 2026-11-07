@@ -139,8 +139,8 @@ export default function Budgeting() {
     <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
       <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', md: 'center' }, gap: 2, mb: 3 }}>
         <Box>
-          <Typography variant="h4" fontWeight="700" color="primary">Anggaran (Budgeting)</Typography>
-          <Typography variant="subtitle1" color="text.secondary">Kelola dan pantau realisasi anggaran</Typography>
+          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Anggaran (Budgeting)</Typography>
+          <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola dan pantau realisasi anggaran</Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
           <TextField select label="Bulan" value={filterMonth} onChange={e => setFilterMonth(parseInt(e.target.value as string))} size="small" sx={{ width: 120 }}>
@@ -191,7 +191,7 @@ export default function Budgeting() {
                             sx={{ height: 8, borderRadius: 4 }}
                           />
                         </Box>
-                        <Typography variant="body2" color="text.secondary">{Math.round(percentage)}%</Typography>
+                        <Typography component="p" variant="body2" color="text.secondary">{Math.round(percentage)}%</Typography>
                       </Box>
                     </TableCell>
                     <TableCell align="center">

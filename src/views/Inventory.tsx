@@ -98,8 +98,8 @@ export default function Inventory() {
     <Box sx={{ maxWidth: 1000, mx: 'auto' }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 3 }}>
         <Box>
-          <Typography variant="h4" fontWeight="700" color="primary">Manajemen Stok Barang</Typography>
-          <Typography variant="subtitle1" color="text.secondary">Kelola daftar barang, harga, dan ketersediaan stok</Typography>
+          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Manajemen Stok Barang</Typography>
+          <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola daftar barang, harga, dan ketersediaan stok</Typography>
         </Box>
         <Button variant="contained" onClick={handleOpen}>Tambah Barang</Button>
       </Box>

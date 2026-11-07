@@ -221,8 +221,8 @@ export default function FixedAssets() {
     <Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Box>
-          <Typography variant="h4" fontWeight="700" color="primary">Aset Tetap</Typography>
-          <Typography variant="subtitle1" color="text.secondary">Kelola daftar inventaris dan penyusutan</Typography>
+          <Typography component="h4" variant="h4" fontWeight="700" color="primary">Aset Tetap</Typography>
+          <Typography component="h6" variant="subtitle1" color="text.secondary">Kelola daftar inventaris dan penyusutan</Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button variant="outlined" color="success" startIcon={<GetAppIcon />} onClick={() => {
@@ -256,7 +256,7 @@ export default function FixedAssets() {
             {assets.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={8} align="center" sx={{ py: 3 }}>
-                  <Typography variant="body1" color="text.secondary">Belum ada data aset tetap.</Typography>
+                  <Typography component="p" variant="body1" color="text.secondary">Belum ada data aset tetap.</Typography>
                 </TableCell>
               </TableRow>
             ) : (
@@ -266,8 +266,8 @@ export default function FixedAssets() {
                   <TableRow key={a.id} hover>
                     <TableCell>{a.code || '-'}</TableCell>
                     <TableCell>
-                      <Typography variant="body2" fontWeight="bold">{a.name}</Typography>
-                      <Typography variant="caption" color="text.secondary">{a.asset_account_name}</Typography>
+                      <Typography component="p" variant="body2" fontWeight="bold">{a.name}</Typography>
+                      <Typography component="span" variant="caption" color="text.secondary">{a.asset_account_name}</Typography>
                     </TableCell>
                     <TableCell>{a.purchase_date}</TableCell>
                     <TableCell>{formatRupiah(a.purchase_price)}</TableCell>
@@ -307,7 +307,7 @@ export default function FixedAssets() {
             </Grid>
             
             <Grid item xs={12} sm={6}>
-              <TextField label="Tanggal Pembelian (wajib)" type="date" fullWidth value={formData.purchase_date} onChange={e => setFormData({...formData, purchase_date: e.target.value})} InputLabelProps={{ shrink: true }} required />
+              <TextField label="Tanggal Pembelian (wajib)" type="date" fullWidth value={formData.purchase_date} onChange={e => setFormData({...formData, purchase_date: e.target.value})} slotProps={{ inputLabel: { shrink: true } }} required />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField label="Harga Beli (wajib)" type="number" fullWidth value={formData.purchase_price} onChange={e => setFormData({...formData, purchase_price: Number(e.target.value)})} required />
@@ -322,7 +322,7 @@ export default function FixedAssets() {
 
             {/* Account Mapping Section */}
             <Grid item xs={12}>
-              <Typography variant="subtitle2" color="primary" sx={{ mt: 2 }}>Pemetaan Akun (Jurnal)</Typography>
+              <Typography component="h6" variant="subtitle2" color="primary" sx={{ mt: 2 }}>Pemetaan Akun (Jurnal)</Typography>
             </Grid>
             <Grid item xs={12} sm={4}>
               <FormControl fullWidth required>

@@ -87,10 +87,10 @@ export default function Login() {
       </IconButton>
 
       <Paper sx={{ p: 4, maxWidth: 400, width: '100%' }} elevation={3}>
-        <Typography variant="h5" component="h1" gutterBottom align="center" fontWeight="bold">
+        <Typography component="h5" variant="h5" component="h1" gutterBottom align="center" fontWeight="bold">
           Kliimora Cash Pro
         </Typography>
-        <Typography variant="body2" gutterBottom align="center" color="text.secondary" sx={{ mb: 3 }}>
+        <Typography component="p" variant="body2" gutterBottom align="center" color="text.secondary" sx={{ mb: 3 }}>
           Silakan login untuk melanjutkan
         </Typography>
 
@@ -125,7 +125,7 @@ export default function Login() {
       <Dialog open={openSettings} onClose={() => setOpenSettings(false)} maxWidth="sm" fullWidth>
         <DialogTitle>Pengaturan Jaringan Database</DialogTitle>
         <DialogContent>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+          <Typography component="p" variant="body2" color="text.secondary" sx={{ mb: 2 }}>
             Biarkan kosong untuk menggunakan database lokal bawaan. Jika Anda ingin menghubungkan aplikasi ke database di komputer lain (Network Share), klik Pilih File.
           </Typography>
           <Box sx={{ display: 'flex', gap: 1 }}>

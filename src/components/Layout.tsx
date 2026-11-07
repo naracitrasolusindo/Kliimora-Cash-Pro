@@ -120,7 +120,7 @@ export default function Layout() {
                 }}
               >
                 <ListItemIcon sx={{ minWidth: 40 }}>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.text} primaryTypographyProps={{ fontWeight: isActive ? 700 : 500, color: isActive ? '#1976d2' : 'text.primary', fontSize: '0.9rem' }} />
+                <ListItemText primary={item.text} slotProps={{ primary: { fontWeight: isActive ? 700 : 500, color: isActive ? '#1976d2' : 'text.primary', fontSize: '0.9rem' } }} />
               </ListItemButton>
             </ListItem>
           );
@@ -131,7 +131,7 @@ export default function Layout() {
         <ListItem disablePadding>
           <ListItemButton onClick={handleLogout} sx={{ borderRadius: 2, '&:hover': { bgcolor: 'rgba(211, 47, 47, 0.08)' } }}>
             <ListItemIcon sx={{ minWidth: 40 }}><ExitToAppIcon sx={{ color: '#f44336' }} /></ListItemIcon>
-            <ListItemText primary="Logout" primaryTypographyProps={{ fontWeight: 600, color: '#f44336' }} />
+            <ListItemText primary="Logout" slotProps={{ primary: { fontWeight: 600, color: '#f44336' } }} />
           </ListItemButton>
         </ListItem>
       </List>
@@ -160,7 +160,7 @@ export default function Layout() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
+          <Typography component="h6" variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
             {user ? `Halo, ${user.username}` : 'Laporan Keuangan'}
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>

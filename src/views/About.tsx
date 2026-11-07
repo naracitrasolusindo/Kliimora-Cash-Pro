@@ -69,10 +69,10 @@ export default function About() {
           KCP
         </Box>
         
-        <Typography variant="h4" fontWeight="800" color="text.primary" gutterBottom>
+        <Typography component="h4" variant="h4" fontWeight="800" color="text.primary" gutterBottom>
           Kliimora Cash Pro v.2.0.2
         </Typography>
-        <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 4 }}>
+        <Typography component="h6" variant="subtitle1" color="text.secondary" sx={{ mb: 4 }}>
           Aplikasi Pembukuan Desktop Gratis
         </Typography>
         
@@ -82,19 +82,19 @@ export default function About() {
           <Stack spacing={2}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <PersonIcon sx={{ color: '#1976d2' }} />
-              <Typography variant="body1">
+              <Typography component="p" variant="body1">
                 <strong>Dibuat oleh:</strong> Muhammad Ridwan
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <EmailIcon sx={{ color: '#1976d2' }} />
-              <Typography variant="body1">
+              <Typography component="p" variant="body1">
                 <strong>Email:</strong> naracitra.solusindo@gmail.com
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <PhoneIcon sx={{ color: '#1976d2' }} />
-              <Typography variant="body1">
+              <Typography component="p" variant="body1">
                 <strong>Telp:</strong> 08211 348 7323
               </Typography>
             </Box>
@@ -114,7 +114,7 @@ export default function About() {
         </Box>
 
         <Box sx={{ mt: 4 }}>
-          <Typography variant="body2" color="text.secondary" fontWeight={600}>
+          <Typography component="p" variant="body2" color="text.secondary" fontWeight={600}>
             Team Kliimora &copy; 2026
           </Typography>
         </Box>

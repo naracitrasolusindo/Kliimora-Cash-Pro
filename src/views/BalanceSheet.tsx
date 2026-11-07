@@ -127,7 +127,7 @@ export default function BalanceSheet() {
             size="small"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
           />
         </Box>
         <Box sx={{ display: 'flex', gap: 2 }}>

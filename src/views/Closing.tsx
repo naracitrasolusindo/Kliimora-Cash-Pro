@@ -167,8 +167,8 @@ export default function Closing() {
   return (
     <Box sx={{ maxWidth: 800, mx: 'auto' }}>
       <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" fontWeight="700" color="primary">Tutup Buku</Typography>
-        <Typography variant="subtitle1" color="text.secondary">Jurnal Penutup Pendapatan & Beban</Typography>
+        <Typography component="h4" variant="h4" fontWeight="700" color="primary">Tutup Buku</Typography>
+        <Typography component="h6" variant="subtitle1" color="text.secondary">Jurnal Penutup Pendapatan & Beban</Typography>
       </Box>
 
       {message && (
@@ -178,7 +178,7 @@ export default function Closing() {
       )}
 
       <Paper sx={{ p: 4, borderRadius: 2, boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-        <Typography variant="h6" fontWeight="bold" sx={{ mb: 3 }}>Parameter Penutupan</Typography>
+        <Typography component="h6" variant="h6" fontWeight="bold" sx={{ mb: 3 }}>Parameter Penutupan</Typography>
         
         <Box sx={{ display: 'flex', gap: 3, mb: 3 }}>
           <TextField
@@ -187,7 +187,7 @@ export default function Closing() {
             fullWidth
             value={closingDate}
             onChange={(e) => setClosingDate(e.target.value)}
-            InputLabelProps={{ shrink: true }}
+            slotProps={{ inputLabel: { shrink: true } }}
           />
           <TextField
             select
@@ -218,7 +218,7 @@ export default function Closing() {
 
         {preview && (
           <Box sx={{ mt: 4, p: 3, bgcolor: 'background.paper', borderRadius: 2, border: '1px solid', borderColor: 'divider' }}>
-            <Typography variant="h6" sx={{ mb: 2, color: 'text.primary' }}>Ringkasan Saldo yang Akan Ditutup</Typography>
+            <Typography component="h6" variant="h6" sx={{ mb: 2, color: 'text.primary' }}>Ringkasan Saldo yang Akan Ditutup</Typography>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
               <Typography color="text.secondary">Total Pendapatan:</Typography>
               <Typography fontWeight="bold">{formatRupiah(preview.totalRevenue)}</Typography>
