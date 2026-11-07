@@ -60,7 +60,7 @@ export async function reloadDbConnection() {
 async function addColumnIfNotExists(db: Database, table: string, columnDef: string) {
   try {
     await db.execute(`ALTER TABLE ${table} ADD COLUMN ${columnDef}`);
-  } catch (e) {
+  } catch {
     // Abaikan error jika kolom sudah ada
   }
 }
